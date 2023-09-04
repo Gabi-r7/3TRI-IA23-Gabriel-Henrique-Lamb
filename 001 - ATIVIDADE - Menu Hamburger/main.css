@@ -1,0 +1,41 @@
+.bt-hamburger-toggle{
+    --bt-size: 5rem;
+    --bt-padding: 1rem;
+    height: var(--bt-size);
+    width: var(--bt-size);
+    position: relative;
+}
+
+.bt-hamburger-toggle span,
+.bt-hamburger-toggle::before,
+.bt-hamburger-toggle::after{
+    content: '';
+    position: absolute;
+    left: var(--bt-padding);
+    right: var(--bt-padding);
+    height: 2px;
+    background-color: black;
+    transition: .3s;
+}
+
+.bt-hamburger-toggle::before{
+    top: var(--bt-padding);
+}
+
+.bt-hamburger-toggle::after{
+    bottom: var(--bt-padding);
+}
+
+.bt-hamburger-toggle:hover::before{
+    transform-origin: 0 0;
+    transform: rotate(45deg) scaleX(1.3);
+}
+
+.bt-hamburger-toggle:hover::after{
+    transform-origin: 0 0;
+    transform: rotate(-45deg) scaleX(1.3);
+}
+
+.bt-hamburger-toggle:hover > span{
+    transform: scale(0);
+}
