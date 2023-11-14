@@ -217,9 +217,8 @@ h1, h2 {
     right: 0;
     bottom: 0;
     background: inherit;
-    filter: blur(10px); /* Ajuste o valor para controlar o nível de desfoque */
+    filter: blur(10px); 
     z-index: -1;
-    animation: fundoAnimado;
   }
   
   h2{
@@ -234,47 +233,9 @@ h1, h2 {
     margin: 6vw;
     border-radius: 15px;
     padding: 3vw;
-    animation: bordaAnimada;
+    box-shadow: 0 0 40px blue;
     position: relative;
     z-index: -1;
-  }
-
-  
-@keyframes bordaAnimada {
-    0% {
-      box-shadow: 0 0 40px blue;
-    }
-    25% {
-      box-shadow: 0 0 40px purple;
-    }
-    50% {
-      box-shadow: 0 0 40px green;
-    }
-    75% {
-      box-shadow: 0 0 40px red;
-    }
-    100% {
-      box-shadow: 0 0 40px blue;
-    }
-  }
-  
-  
-  @keyframes fundoAnimado {
-    0% {
-      background-color:  blue;
-    }
-    25% {
-      background-color: purple;
-    }
-    50% {
-      background-color: green;
-    }
-    75% {
-      background-color: red;
-    }
-    100% {
-      background-color: blue;
-    }
   }
 
   /* Botão de volta ao topo */
