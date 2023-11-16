@@ -1,5 +1,7 @@
+//------------- Troca de Cores ---------------------------------------------------------------------
+
 const sections = document.querySelectorAll('section');
-const h1eh2 = document.querySelectorAll('h1, h2, .meuBtn');
+const h1eh2 = document.querySelectorAll('h1, h2');
 
 window.addEventListener("load", function() {
   h1eh2.forEach(elemento => { elemento.style.background = 'blue'; });
@@ -10,11 +12,9 @@ window.addEventListener("scroll", ev => {
   const scroll = document.documentElement.scrollTop;
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const percent = (scroll / height) * 100;
-  console.log(percent);
-  // Seleciona todas as seções
   alterarCor(percent);
+  console.log(percent);
 
-  // Itera sobre todas as seções e altera a cor do box-shadow
   sections.forEach(section => alterarCorBoxShadow(section));
   h1eh2.forEach(h1 => alterarBackground(h1));
   h1eh2.forEach(h2 => alterarBackground(h2));
@@ -45,17 +45,23 @@ function alterarCorBoxShadow(elemento) {
   elemento.style.boxShadow = `0 0 40px ${cor}`;
 }
 
-// ----------------------------------------------------------------------------------
+// ------------------ Botão menu hamburger ----------------------------------------------------------------
 
 const btHamburger = document.querySelector(".menu-hamburger");
 const mainMenu = document.querySelector("nav.main-menu");
+const main = document.querySelector("main");
 
 btHamburger.addEventListener("click", () => {
   btHamburger.classList.toggle("opened");
   mainMenu.classList.toggle("opened");
 });
 
-// ----------------------------------------------------------------------------------
+main.addEventListener("click", () => {
+  btHamburger.classList.remove("opened");
+  mainMenu.classList.remove("opened");
+});
+
+// --------------- Botão volta ao topo-------------------------------------------------------------------
 
 let meuBtn = document.querySelector('.meuBtn');
 
@@ -72,7 +78,7 @@ function scrollFunction() {
 function scrollToTop() {
   window.scrollTo({
     top: 0,
-    behavior: "smooth" // Isso faz a animação suave
+    behavior: "smooth"
   });
 }
 
