@@ -1,7 +1,7 @@
 //------------- Troca de Cores ---------------------------------------------------------------------
 
 const sections = document.querySelectorAll('section');
-const h1eh2 = document.querySelectorAll('h1, h2');
+const h1eh2 = document.querySelectorAll('main h1, main h2');
 
 window.addEventListener("load", function() {
   h1eh2.forEach(elemento => { elemento.style.background = 'blue'; });
@@ -13,7 +13,6 @@ window.addEventListener("scroll", ev => {
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const percent = (scroll / height) * 100;
   alterarCor(percent);
-  console.log(percent);
 
   sections.forEach(section => alterarCorBoxShadow(section));
   h1eh2.forEach(h1 => alterarBackground(h1));
@@ -89,4 +88,40 @@ meuBtn.addEventListener("click", scrollToTop);
 
 // ------------------ Botão muda de tema -------------------------------------------------------------------
 
-const btnMudaTema = document.querySelector('#switch-mode');
+const switchMode = document.getElementById('switch-mode');
+const themeModal = document.getElementById('themeModal');
+const btSimModal = document.getElementById('btSimModal');
+const btNaoModal = document.getElementById('btNaoModal');
+
+let body = getComputedStyle(document.body);
+let P = getComputedStyle(document.querySelector('p'));
+let section = getComputedStyle(document.querySelector('section'));
+
+let corFundoBody = body.getPropertyValue('--body_background').trim();
+let corTextoP = P.getPropertyValue('--content_color').trim();
+let corFundoSection = section.getPropertyValue('--content_background').trim();
+var tema = 'dark';
+
+switchMode.addEventListener('click', () => {
+  themeModal.showModal();
+});
+
+btSimModal.addEventListener('click', () => {
+  if (tema == 'dark') {
+    document.documentElement.style.setProperty('--body_background', 'rgb(147,148,165)');
+    document.documentElement.style.setProperty('--content_color', '#000');
+    document.documentElement.style.setProperty('--content_background', 'rgb(228,229,241)');
+    tema = 'light';
+  }
+  else if (tema == 'light') {
+    document.documentElement.style.setProperty('--body_background', 'rgb(21, 22, 22)');
+    document.documentElement.style.setProperty('--content_color', '#fff');
+    document.documentElement.style.setProperty('--content_background', 'rgb(43, 40, 40)');
+    tema = 'dark';
+  }
+  themeModal.close();
+});
+
+btNaoModal.addEventListener('click', () => {
+  themeModal.close();
+});
