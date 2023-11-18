@@ -47,18 +47,21 @@ function alterarCorBoxShadow(elemento) {
 
 // ------------------ Botão menu hamburger ----------------------------------------------------------------
 
-const btHamburger = document.querySelector(".menu-hamburger");
-const mainMenu = document.querySelector("nav.main-menu");
-const main = document.querySelector("main");
+const button = document.querySelector('.menu-button');
+const nav = document.querySelector('.main-menu');
+const icon = document.querySelector('.icon');
+const main = document.querySelector('main');
 
-btHamburger.addEventListener("click", () => {
-  btHamburger.classList.toggle("opened");
-  mainMenu.classList.toggle("opened");
+button.addEventListener('click', () => {
+  button.classList.toggle('active');
+  nav.classList.toggle('opened');
+  icon.classList.toggle('active');
 });
 
-main.addEventListener("click", () => {
-  btHamburger.classList.remove("opened");
-  mainMenu.classList.remove("opened");
+main.addEventListener('click', () => {
+  button.classList.remove('active');
+  nav.classList.remove('opened');
+  icon.classList.remove('active');
 });
 
 // --------------- Botão volta ao topo-------------------------------------------------------------------
@@ -83,3 +86,7 @@ function scrollToTop() {
 }
 
 meuBtn.addEventListener("click", scrollToTop);
+
+// ------------------ Botão muda de tema -------------------------------------------------------------------
+
+const btnMudaTema = document.querySelector('#switch-mode');

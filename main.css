@@ -6,13 +6,13 @@ html{
     background-color: rgb(21, 22, 22);
   }
 
-.material-symbols-outlined {
+  .material-symbols-outlined {
     font-variation-settings:
-        'FILL' 1,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
-}
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
 
 :root {
     --width-main-menu: 20rem;
@@ -31,7 +31,7 @@ body:before {
 
 
 /* MENU HAMBURGUER */
-
+/*
 .menu-hamburger {
     border: none;
     background-color: transparent;
@@ -95,7 +95,7 @@ body:before {
 .menu-hamburger.opened>span {
     transform: scale(0);
 }
-
+*/
 nav.main-menu {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.5);
@@ -129,8 +129,89 @@ nav.main-menu a:visited {
 
 nav.main-menu.opened {
     transform: translateX(0%);
+    z-index: 1;
+} 
+
+.icon {
+    transition-duration: 0.5s;
+    position: absolute;
+    height: 3px;
+    width: 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
 }
 
+.icon.active {
+    transition: .3s ease-in-out;
+    background: transparent;
+}
+
+.menu-button {
+    --bt-size: 3rem;
+
+    display: grid;
+    place-items: center;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: var(--bt-size);
+    height: var(--bt-size);
+    background: #c5cdd0;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    border: none;
+    transition: .3s;
+    border: none;
+    background-color: transparent;
+    transition: .3s;
+       
+}
+
+.menu-button::before,
+.menu-button::after {
+    content: '';
+    position: absolute;
+    padding: auto;
+    top: 50%;
+    left: 50%;
+    width: 1.8rem;
+    height: 0.2rem;
+    background: #ffffff;
+    border-radius: 0.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-button::before {
+    margin-top: -0.6rem;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.menu-button::after {
+    margin-top: 0.6rem;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.menu-button.active::before {
+    margin-top: 0.1rem;
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.menu-button.active::after {
+    margin-top: 0.1rem;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.menu-button.active{
+    transition: 0.3s;
+    background-color: rgb(23, 185, 177);
+}
+
+.menu-button.active {
+    left: 0;
+    transform: translateX(calc(var(--width-main-menu) - (var(--bt-size) / 2)));
+    z-index: 2;
+}
 
 
 /* ----------------------------------- */
@@ -145,18 +226,16 @@ body {
     scroll-behavior: smooth;
 }
 
-main,
-footer {
-    padding: 1rem;
-}
-
 body {
-    min-height: 100vh
+    min-height: 100vh;
+    margin: 0;
 }
 
 
 main {
+    position: relative;
     min-height: calc(100dvh - 350px);
+    padding-top: 5rem;
 }
 
 footer {
@@ -166,29 +245,29 @@ footer {
 /* --------- HEADER --------- */
 
 header {
+    top: 0;
+    position: fixed;
     width: 100%;
-    height: 24vh;
-    background-color: rgb(43, 40, 40);
+    height: 13vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2.5px);
     display: flex;
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
+    
 }
 
 .titulo{
     top: 0%;
-    height: 18vh;
-    width: 40vw;
+    height: 100%;
+    width: 15%;
     background-image: url('imagens/logo\ colorida.png');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     transition: .3s;
     }
-      
-.titulo:hover{
-    filter: grayscale(1) brightness(5);
-}
 
 /* --------- MAIN --------- */
 
@@ -243,7 +322,18 @@ h1, h2 {
     box-shadow: 0 0 40px blue;
     position: relative;
     z-index: -1;
+    scroll-margin-top: 12vh;
   }
+
+  section::before {
+    content: "";
+    display: block;
+    height: 100px; /* ou a altura que você deseja */
+    margin-top: -100px 0 0;
+    visibility: hidden;
+    position: absolute;
+}
+
 
   /* Botão de volta ao topo */
 
