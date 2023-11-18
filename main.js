@@ -20,18 +20,38 @@ window.addEventListener("scroll", ev => {
 
 });
 
-let cor;
+let cor
 function alterarCor(percent) {
+  let r, g, b;
+  
+  if (percent < 20) {
+    // interpolação linear entre azul (0, 0, 255) e roxo (128, 0, 128)
+    r = Math.round(0 + percent * (128 - 0) / 20);
+    g = 0;
+    b = Math.round(255 + percent * (128 - 255) / 20);
+} else if (percent < 40) {
+    // interpolação linear entre roxo (128, 0, 128) e verde (0, 255, 0)
+    r = Math.round(128 + (percent - 20) * (0 - 128) / 20);
+    g = Math.round(0 + (percent - 20) * (255 - 0) / 20);
+    b = Math.round(128 + (percent - 20) * (0 - 128) / 20);
+} else if (percent < 60) {
+    // interpolação linear entre verde (0, 255, 0) e amarelo (255, 255, 0)
+    r = Math.round(0 + (percent - 40) * (255 - 0) / 20);
+    g = 255;
+    b = 0;
+} else if (percent < 80){
+    // interpolação linear entre amarelo (255, 255, 0) e laranja (255, 165, 0)
+    r = 255;
+    g = Math.round(255 + (percent - 60) * (165 - 255) / 20);
+    b = 0;
+} else {
+    // interpolação linear entre laranja (255, 165, 0) e vermelho (255, 0, 0)
+    r = 255;
+    g = Math.round(165 + (percent - 80) * (0 - 165) / 20);
+    b = 0;
+}
 
-  if (percent < 25) {
-    cor = 'blue';
-  } else if (percent < 50) {
-    cor = 'purple';
-  } else if (percent < 75) {
-    cor = 'green';
-  } else {
-    cor = 'red';
-  }
+  cor = 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 
 function alterarBackground(elemento) {
