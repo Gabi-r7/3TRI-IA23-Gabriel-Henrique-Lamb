@@ -116,10 +116,6 @@ nav.main-menu a {
     text-decoration: none;
 }
 
-nav.main-menu a:visited {
-    color: blue;
-}
-
 nav.main-menu.opened {
     transform: translateX(0%);
     z-index: 1;
@@ -155,10 +151,9 @@ nav.main-menu.opened {
     z-index: 1;
     border: none;
     transition: .3s;
-    border: none;
     background-color: transparent;
     transition: .3s;
-       
+    font-size: 50px;
 }
 
 .menu-button::before,
@@ -361,8 +356,8 @@ h1, h2 {
     position: fixed;
     right: 1rem;
     top: 1rem;
-    width: 3rem;
-    height: 3rem;
+    width: var(--bt-size);
+    height: var(--bt-size);
     border: none;
     cursor: pointer;
     z-index: 1;
@@ -440,6 +435,8 @@ dialog {
     background-color: yellow;
 } */
 
+/* MODAL TEMA */
+
 dialog#themeModal {
     width: 80%;
     max-width: 400px;
@@ -476,9 +473,18 @@ nav a:hover, dialog button:hover {
     border: var(--content_color) solid;
     transform: scale(109%);
 }
+
+#btSimModal:hover {
+    background: rgb(12, 196, 27);
+    box-shadow: 0 0 35px rgb(12, 196, 27);
+}
+
+#btNaoModal:hover {
+    background: rgb(240, 28, 28);
+    box-shadow: 0 0 35px rgb(240, 28, 28);
+}
     
 nav a:hover, dialog button::before{
     content: '';
     inset: 2px;
-    
 }

@@ -132,12 +132,14 @@ btSimModal.addEventListener('click', () => {
     document.documentElement.style.setProperty('--content_color', '#000');
     document.documentElement.style.setProperty('--content_background', 'rgb(228,229,241)');
     tema = 'light';
+    switchMode.innerHTML = 'dark_mode';
   }
   else if (tema == 'light') {
     document.documentElement.style.setProperty('--body_background', 'rgb(21, 22, 22)');
     document.documentElement.style.setProperty('--content_color', '#fff');
     document.documentElement.style.setProperty('--content_background', 'rgb(43, 40, 40)');
     tema = 'dark';
+    switchMode.innerHTML = 'light_mode';
   }
   themeModal.close();
 });
