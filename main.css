@@ -222,6 +222,7 @@ body {
 
 
 main {
+    place-items: center;
     position: relative;
     min-height: calc(100dvh - 350px);
     padding-top: 5rem;
@@ -273,15 +274,16 @@ main>h1{
   }
 
 h1, h2 {
+    background: inherit;
     text-align: center;
     border-radius: 10px;
     position: relative;
     font-size: 24px;
     color: white; /* Cor do texto */
     text-align: center;
-    padding: 20px;
     width: fit-content;
     padding: 2rem;
+    margin: 2rem;
   }
   
   h1::before, h2::before {
@@ -297,12 +299,17 @@ h1, h2 {
   }
   
   h2{
+    position: relative;
+    text-align: center;
     margin: auto;
     padding: 2vh;
     margin-bottom: 6vh;
   }
   
   section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     place-items: center;
     background-color: var(--content_background);
     margin: 6vw;
@@ -323,6 +330,10 @@ h1, h2 {
     position: absolute;
 }
 
+.txtAndImg {
+    display: flex;
+    text-align: justify;
+  }
 
   /* Botão de volta ao topo */
 
@@ -487,4 +498,40 @@ nav a:hover, dialog button:hover {
 nav a:hover, dialog button::before{
     content: '';
     inset: 2px;
+}
+
+/* --------------- Fotos ------------------- */
+.divs-fotos {
+    display: flex;
+    place-items: center;
+    max-width: max-content;
+    margin: 1.5vw;
+}
+
+.fotos {
+    height: 200px;
+    width: 200px;
+    border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+}
+
+#foto-leon {
+    background-image: url('imagens/Leon.jpg');
+}
+
+#foto-nilce {
+    background-image: url('imagens/Nilce.png');
+}
+
+#foto-coisadenerd {
+    background-image: url('imagens/coisadenerd.jpg');
+}
+
+#foto-cadeachave {
+    background-image: url('imagens/cadeachave.jpg');
+}
+
+#foto-republicacoisadenerd {
+    background-image: url('imagens/republicacoisadenerd.jpg');
 }
