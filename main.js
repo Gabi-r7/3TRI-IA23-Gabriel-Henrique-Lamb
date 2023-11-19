@@ -147,3 +147,21 @@ btSimModal.addEventListener('click', () => {
 btNaoModal.addEventListener('click', () => {
   themeModal.close();
 });
+
+// ------------------ Cookies -------------------------------------------------------------------
+
+const cookies = document.getElementById('CookiesModal');
+const btSimCookies = document.getElementById('btSimCookies');
+const btNaoCookies = document.getElementById('btNaoCookies');
+cookies.show();
+console.log('cookies');
+
+btSimCookies.addEventListener('click', () => {
+  cookies.close();
+  console.log('cookies aceitos');
+});
+
+btNaoCookies.addEventListener('click', () => {
+  cookies.close();
+  console.log('cookies não aceitos');
+});
