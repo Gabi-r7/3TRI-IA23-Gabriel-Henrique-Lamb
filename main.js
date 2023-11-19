@@ -1,6 +1,6 @@
 //------------- Troca de Cores ---------------------------------------------------------------------
 
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('section, footer');
 const h1eh2 = document.querySelectorAll('main h1, main h2');
 
 window.addEventListener("load", function() {
